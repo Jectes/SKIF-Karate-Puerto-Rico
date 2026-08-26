@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Secure student, parent, instructor, and administrator portal for S.K.I.F. Puerto Rico Honbu Dojo." />
+  <meta name="theme-color" content="#0c1c45" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Secure Dojo Portal | S.K.I.F. Puerto Rico Honbu Dojo</title>
+  <link rel="icon" type="image/png" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="portal-body">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="S.K.I.F. Puerto Rico Honbu Dojo home">
+        <img src="assets/official-logo.png" alt="S.K.I.F. Puerto Rico Honbu Dojo emblem" />
+        <span><strong>S.K.I.F. Puerto Rico</strong><small>Honbu Dojo</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span><span class="sr-only">Open navigation</span>
+      </button>
+      <nav id="site-nav" class="site-nav" data-nav>
+        <a href="index.html#about">About</a>
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="privacy.html">Privacy</a>
+        <a class="nav-cta" href="portal.html" aria-current="page">Secure Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="secure-portal-main">
+    <section class="portal-login-hero" data-auth-area>
+      <div class="container portal-login-grid">
+        <div class="portal-login-copy reveal is-visible">
+          <p class="eyebrow">Private Dojo Portal</p>
+          <h1>One secure account. The right information for each person.</h1>
+          <p>Parents can follow their children, students can follow their own progress, and instructors can update training records without exposing another family's information.</p>
+          <div class="relationship-diagram" aria-label="Portal account relationship">
+            <div><span>Parent account</span><strong>Email + password</strong></div>
+            <b aria-hidden="true">↔</b>
+            <div><span>Linked student</span><strong>Progress + schedule</strong></div>
+          </div>
+          <ul class="security-points">
+            <li>Email verification and dojo approval before student records unlock</li>
+            <li>Optional Google sign-in and passkeys, plus password-manager support and recovery</li>
+            <li>15-character live password meter; provider-level leaked-password rejection when enabled</li>
+            <li>Row Level Security plus authenticator MFA for instructors and administrators</li>
+          </ul>
+        </div>
+
+        <div class="auth-card reveal is-visible" data-auth-shell>
+          <div class="portal-brand-mark">
+            <img src="assets/official-logo.png" alt="Dojo emblem" />
+            <div><small>S.K.I.F. Puerto Rico</small><strong>Dojo Portal</strong></div>
+            <span class="secure-connection-badge" title="Use only on the official HTTPS website">Secure access</span>
+          </div>
+
+          <div class="auth-view" data-auth-view="loading">
+            <div class="loading-ring" aria-hidden="true"></div>
+            <h2>Opening the portal</h2>
+            <p>Checking your secure session.</p>
+          </div>
+
+          <div class="auth-view" data-auth-view="setup" hidden>
+            <p class="card-kicker">Setup required</p>
+            <h2>Connect the database first</h2>
+            <p>The portal files are ready, but this copy still has placeholder Supabase settings.</p>
+            <ol class="setup-steps">
+              <li>Create a Supabase project.</li>
+              <li>Run <code>supabase/schema.sql</code> and <code>supabase/seed.sql</code>.</li>
+              <li>Add the project URL and publishable key to <code>supabase-config.js</code>.</li>
+            </ol>
+            <button class="btn btn-primary btn-block" type="button" data-demo-parent>Open parent demo</button>
+            <button class="btn btn-secondary btn-block" type="button" data-demo-instructor>Open instructor demo</button>
+            <button class="btn btn-secondary btn-block" type="button" data-demo-admin>Open administrator demo</button>
+            <p class="auth-footnote">Demo mode uses local sample records only. It does not create an account or store personal information.</p>
+          </div>
+
+          <div class="auth-view" data-auth-view="login" hidden>
+            <p class="card-kicker">Welcome back</p>
+            <h2>Sign in</h2>
+            <p>Use your approved dojo account.</p>
+
+            <div class="social-auth-stack" data-social-auth hidden>
+              <button class="social-auth-button google" type="button" data-google-login hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.8 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.5a4.7 4.7 0 0 1-2 3.1v2.6h3.2c1.9-1.8 3.1-4.4 3.1-7.5Z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.7-2.3l-3.2-2.6c-.9.6-2 1-3.5 1a5.9 5.9 0 0 1-5.5-4.1H3.2v2.7A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.5 14a6 6 0 0 1 0-3.9V7.4H3.2a10 10 0 0 0 0 9.3L6.5 14Z"/><path fill="#EA4335" d="M12 5.9c1.6 0 3 .5 4.1 1.6l3.1-3A10 10 0 0 0 3.2 7.4l3.3 2.7A5.9 5.9 0 0 1 12 5.9Z"/></svg>
+                <span>Continue with Google</span>
+              </button>
+              <button class="social-auth-button passkey" type="button" data-passkey-login hidden>
+                <span class="passkey-icon" aria-hidden="true">🔑</span><span>Sign in with a passkey</span>
+              </button>
+              <div class="auth-divider"><span>or use email and password</span></div>
+            </div>
+
+            <form class="auth-form" data-login-form novalidate>
+              <label>Email
+                <input type="email" name="email" autocomplete="username" inputmode="email" maxlength="254" autocapitalize="none" spellcheck="false" required />
+              </label>
+              <label>Password
+                <span class="password-input-wrap">
+                  <input type="password" name="password" autocomplete="current-password" maxlength="128" autocapitalize="none" spellcheck="false" required data-password-input />
+                  <button class="password-toggle" type="button" data-toggle-password aria-pressed="false">Show</button>
+                </span>
+                <span class="caps-lock-warning" data-caps-lock hidden>Caps Lock is on.</span>
+              </label>
+              <div class="captcha-slot" data-captcha-slot="login" hidden></div>
+              <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+            <div class="auth-link-row">
+              <button class="text-button" type="button" data-show-recovery>Forgot password?</button>
+              <button class="text-button" type="button" data-show-signup hidden>Create account</button>
+            </div>
+            <p class="auth-footnote">New accounts must verify their email and be approved and linked by the dojo before any student information appears.</p>
+          </div>
+
+          <div class="auth-view" data-auth-view="signup" hidden>
+            <p class="card-kicker">New family account</p>
+            <h2>Create your secure login</h2>
+            <p>Use your own email. Verification and dojo approval are required.</p>
+            <form class="auth-form" data-signup-form novalidate>
+              <label>Full name
+                <input type="text" name="fullName" autocomplete="name" minlength="2" maxlength="120" required />
+              </label>
+              <label>Account type
+                <select name="requestedRole" required>
+                  <option value="parent">Parent or legal guardian</option>
+                  <option value="student">Adult student (18 or older)</option>
+                </select>
+              </label>
+              <label>Email
+                <input type="email" name="email" autocomplete="email" inputmode="email" maxlength="254" autocapitalize="none" spellcheck="false" required />
+              </label>
+              <label>New password
+                <span class="password-input-wrap">
+                  <input type="password" name="password" autocomplete="new-password" minlength="15" maxlength="128" autocapitalize="none" spellcheck="false" required data-password-input />
+                  <button class="password-toggle" type="button" data-toggle-password aria-pressed="false">Show</button>
+                </span>
+                <span class="caps-lock-warning" data-caps-lock hidden>Caps Lock is on.</span>
+              </label>
+              <div class="password-feedback" data-password-feedback aria-live="polite">
+                <div class="password-strength-row"><span>Password strength</span><strong data-password-label>Not entered</strong></div>
+                <progress class="password-strength" data-password-progress max="4" value="0">0 of 4</progress>
+                <ul class="password-rules">
+                  <li data-password-rule="length">15–128 characters</li>
+                  <li data-password-rule="uppercase">At least one uppercase letter</li>
+                  <li data-password-rule="lowercase">At least one lowercase letter</li>
+                  <li data-password-rule="number">At least one number</li>
+                  <li data-password-rule="symbol">At least one special character</li>
+                  <li data-password-rule="repeats">No three identical characters in a row</li>
+                  <li data-password-rule="sequences">No obvious four-character sequence</li>
+                  <li data-password-rule="personal">Does not contain your name or email name</li>
+                  <li data-password-rule="common">Not a common or dojo-themed password</li>
+                </ul>
+              </div>
+              <label>Confirm password
+                <span class="password-input-wrap">
+                  <input type="password" name="confirmPassword" autocomplete="new-password" minlength="15" maxlength="128" autocapitalize="none" spellcheck="false" required />
+                  <button class="password-toggle" type="button" data-toggle-password aria-pressed="false">Show</button>
+                </span>
+                <span class="password-match" data-password-match aria-live="polite"></span>
+              </label>
+              <label class="consent-check"><input type="checkbox" name="adultAffirmation" value="yes" required /><span>I am a parent/legal guardian, or I am an adult student age 18 or older.</span></label>
+              <label class="consent-check"><input type="checkbox" name="privacyConsent" value="yes" required /><span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">privacy and portal rules</a>.</span></label>
+              <div class="captcha-slot" data-captcha-slot="signup" hidden></div>
+              <button class="btn btn-primary btn-block" type="submit">Create account</button>
+            </form>
+            <button class="text-button" type="button" data-show-login>Back to sign in</button>
+          </div>
+
+          <div class="auth-view" data-auth-view="signup-success" hidden>
+            <div class="auth-success-icon" aria-hidden="true">✓</div>
+            <p class="card-kicker">Request received</p>
+            <h2>Check your email</h2>
+            <p>Use the verification link, then wait for the dojo to approve and connect your account to the correct student. Creating an account alone never exposes a child's record.</p>
+            <button class="btn btn-primary btn-block" type="button" data-show-login>Back to sign in</button>
+          </div>
+
+          <div class="auth-view" data-auth-view="pending" hidden>
+            <div class="auth-pending-icon" aria-hidden="true">⏳</div>
+            <p class="card-kicker">Protected by approval</p>
+            <h2>Your account is not active yet</h2>
+            <p>Your email is signed in, but no student information can be opened until a dojo administrator verifies the request, selects the role, and links the correct student.</p>
+            <button class="btn btn-secondary btn-block" type="button" data-pending-sign-out>Sign out</button>
+          </div>
+
+          <div class="auth-view" data-auth-view="recovery" hidden>
+            <p class="card-kicker">Account recovery</p>
+            <h2>Reset your password</h2>
+            <p>We will send a secure reset link if the email belongs to an account.</p>
+            <form class="auth-form" data-recovery-form novalidate>
+              <label>Email
+                <input type="email" name="email" autocomplete="email" inputmode="email" maxlength="254" autocapitalize="none" spellcheck="false" required />
+              </label>
+              <div class="captcha-slot" data-captcha-slot="recovery" hidden></div>
+              <button class="btn btn-primary btn-block" type="submit">Send reset link</button>
+            </form>
+            <button class="text-button" type="button" data-show-login>Back to sign in</button>
+          </div>
+
+          <div class="auth-view" data-auth-view="set-password" hidden>
+            <p class="card-kicker">Secure your account</p>
+            <h2>Choose a new password</h2>
+            <p>Use a long, unique password that is not used anywhere else.</p>
+            <form class="auth-form" data-password-form novalidate>
+              <label>New password
+                <span class="password-input-wrap">
+                  <input type="password" name="password" autocomplete="new-password" minlength="15" maxlength="128" autocapitalize="none" spellcheck="false" required data-password-input />
+                  <button class="password-toggle" type="button" data-toggle-password aria-pressed="false">Show</button>
+                </span>
+                <span class="caps-lock-warning" data-caps-lock hidden>Caps Lock is on.</span>
+              </label>
+              <div class="password-feedback" data-password-feedback aria-live="polite">
+                <div class="password-strength-row"><span>Password strength</span><strong data-password-label>Not entered</strong></div>
+                <progress class="password-strength" data-password-progress max="4" value="0">0 of 4</progress>
+                <ul class="password-rules">
+                  <li data-password-rule="length">15–128 characters</li><li data-password-rule="uppercase">At least one uppercase letter</li><li data-password-rule="lowercase">At least one lowercase letter</li><li data-password-rule="number">At least one number</li><li data-password-rule="symbol">At least one special character</li><li data-password-rule="repeats">No three identical characters in a row</li><li data-password-rule="sequences">No obvious four-character sequence</li><li data-password-rule="personal">Does not contain your name or email name</li><li data-password-rule="common">Not a common or dojo-themed password</li>
+                </ul>
+              </div>
+              <label>Confirm password
+                <span class="password-input-wrap">
+                  <input type="password" name="confirmPassword" autocomplete="new-password" minlength="15" maxlength="128" autocapitalize="none" spellcheck="false" required />
+                  <button class="password-toggle" type="button" data-toggle-password aria-pressed="false">Show</button>
+                </span>
+                <span class="password-match" data-password-match aria-live="polite"></span>
+              </label>
+              <button class="btn btn-primary btn-block" type="submit">Save password</button>
+            </form>
+          </div>
+
+          <div class="auth-view" data-auth-view="mfa" hidden>
+            <p class="card-kicker">Two-step verification</p>
+            <h2>Enter your authenticator code</h2>
+            <p>Open your authenticator app and enter the current six-digit code.</p>
+            <form class="auth-form" data-mfa-challenge-form>
+              <label>Verification code
+                <input type="text" name="code" autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required />
+              </label>
+              <button class="btn btn-primary btn-block" type="submit">Verify</button>
+            </form>
+            <button class="text-button" type="button" data-sign-out>Use another account</button>
+          </div>
+
+          <p class="form-status" data-auth-status aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portal-dashboard" data-dashboard hidden>
+      <div class="container portal-dashboard-header">
+        <div>
+          <p class="card-kicker">Secure Dojo Portal</p>
+          <h1 data-dashboard-title>Welcome</h1>
+          <p data-dashboard-subtitle>Loading your authorized records.</p>
+        </div>
+        <div class="dashboard-account-actions">
+          <span class="role-pill" data-role-pill>Account</span>
+          <button class="btn btn-small btn-secondary" type="button" data-enable-mfa>Enable MFA</button>
+          <button class="btn btn-small btn-ghost-dark" type="button" data-dashboard-sign-out>Sign out</button>
+        </div>
+      </div>
+
+      <div class="container portal-app-shell">
+        <aside class="portal-sidebar" aria-label="Portal navigation">
+          <div class="student-switcher" data-student-switcher hidden>
+            <label for="student-select">Viewing student</label>
+            <select id="student-select" data-student-select></select>
+          </div>
+          <nav class="portal-menu">
+            <button type="button" class="is-active" data-portal-route="overview">Overview</button>
+            <button type="button" data-portal-route="progress">Belt progress</button>
+            <button type="button" data-portal-route="schedule">Schedule & attendance</button>
+            <button type="button" data-portal-route="announcements">Announcements</button>
+            <button type="button" data-portal-route="billing" data-billing-route>Billing</button>
+            <button type="button" data-portal-route="staff" data-staff-route hidden>Instructor tools</button>
+            <button type="button" data-portal-route="admin" data-admin-route hidden>Administration</button>
+            <button type="button" data-portal-route="account">Account & security</button>
+          </nav>
+          <div class="portal-privacy-note">
+            <strong>Private by design</strong>
+            <span>You only see records connected to your account and role.</span>
+          </div>
+        </aside>
+
+        <div class="portal-content-wrap">
+          <div class="portal-alert" data-portal-alert hidden></div>
+          <div class="portal-content" data-portal-content aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="portal-modal" data-mfa-modal hidden role="dialog" aria-modal="true" aria-labelledby="mfa-modal-title">
+    <div class="portal-modal-card">
+      <button class="modal-close" type="button" data-close-mfa aria-label="Close">×</button>
+      <p class="card-kicker">Account security</p>
+      <h2 id="mfa-modal-title">Enable authenticator MFA</h2>
+      <p>Scan this QR code with an authenticator app, then enter the current six-digit code.</p>
+      <div class="mfa-qr-wrap"><img data-mfa-qr alt="Authenticator enrollment QR code" /></div>
+      <p class="mfa-secret" data-mfa-secret></p>
+      <form class="auth-form" data-mfa-enroll-form>
+        <label>Verification code
+          <input type="text" name="code" autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required />
+        </label>
+        <button class="btn btn-primary btn-block" type="submit">Enable MFA</button>
+      </form>
+      <p class="form-status" data-mfa-status aria-live="polite"></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="index.html"><img src="assets/official-logo.png" alt="Dojo emblem" /><span><strong>S.K.I.F. Puerto Rico</strong><small>Honbu Dojo</small></span></a>
+        <p>Traditional Shotokan Karate-Do with secure family and student progress tracking.</p>
+      </div>
+      <div><strong>Portal</strong><a href="portal.html">Sign in</a><a href="privacy.html">Privacy</a><a href="index.html#contact">Contact</a></div>
+      <div><strong>Security</strong><span>Verified and approved accounts</span><span>Row-level authorization</span><span>Staff MFA</span></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year></span> S.K.I.F. Puerto Rico Honbu Dojo.</span><span>Never share your password or authenticator code.</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="auth-security.js"></script>
+  <script src="portal.js"></script>
+</body>
+</html>

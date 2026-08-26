@@ -1,0 +1,18 @@
+# Keep JWT verification enabled. Each function also validates the token with
+# Supabase Auth, checks the administrator profile, and requires AAL2 MFA.
+[functions.invite-user]
+verify_jwt = true
+
+[functions.manage-accounts]
+verify_jwt = true
+
+# Optional experimental passkey configuration. Do not enable this with a
+# temporary hostname. Replace every placeholder and keep the RP ID stable.
+#
+# [auth.passkey]
+# enabled = true
+#
+# [auth.webauthn]
+# rp_display_name = "S.K.I.F. Puerto Rico Dojo Portal"
+# rp_id = "portal.example.org"
+# rp_origins = ["https://portal.example.org"]

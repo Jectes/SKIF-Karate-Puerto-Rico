@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy and student-data handling notice for the S.K.I.F. Puerto Rico Honbu Dojo portal." />
+  <meta name="theme-color" content="#0c1c45" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Privacy & Student Data | S.K.I.F. Puerto Rico Honbu Dojo</title>
+  <link rel="icon" type="image/png" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="S.K.I.F. Puerto Rico Honbu Dojo home">
+        <img src="assets/official-logo.png" alt="S.K.I.F. Puerto Rico Honbu Dojo emblem" />
+        <span><strong>S.K.I.F. Puerto Rico</strong><small>Honbu Dojo</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span><span class="sr-only">Open navigation</span>
+      </button>
+      <nav id="site-nav" class="site-nav" data-nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a class="nav-cta" href="portal.html">Secure Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="simple-page privacy-page">
+    <div class="container slim">
+      <p class="eyebrow">Privacy & Data Handling</p>
+      <h1>Student and family information should be useful, limited, and protected.</h1>
+      <p class="lead">This deployment package includes a privacy-ready structure, but the dojo must replace every bracketed contact field, identify the actual service providers, and approve the final retention periods before launch.</p>
+      <div class="portal-alert warning"><strong>Draft notice:</strong> This is an operational template, not legal advice or a substitute for a policy reviewed for the dojo's actual location, services, and students.</div>
+      <p class="small-note">Draft updated August 21, 2026 • Policy version: DRAFT-2026-08</p>
+
+      <section class="policy-card">
+        <h2>1. Information the portal uses</h2>
+        <ul class="task-list">
+          <li><strong>Account information:</strong> email address, display name, login provider, confirmation status, account role, activation status, and multi-factor-authentication status. Depending on configuration, the login provider may be email/password, Google, or a passkey.</li>
+          <li><strong>Authentication security:</strong> the authentication provider processes password hashes, recovery sessions, OAuth responses, passkey public credentials, session tokens, CAPTCHA verification, and authenticator factors. The dojo application tables do not store plaintext passwords, private passkey keys, or authenticator codes.</li>
+          <li><strong>Student profile:</strong> display name, broad age group, minor/adult flag, program, current belt rank, enrollment status, and linked parent/guardian or student accounts.</li>
+          <li><strong>Training records:</strong> class enrollments, attendance, belt requirements, progress status, badges, goals, and authorized instructor notes.</li>
+          <li><strong>Administrative records:</strong> announcement audience, consent records, billing description, amount, due date, external reference, and payment status.</li>
+          <li><strong>Security records:</strong> limited audit metadata such as who changed a protected record, the affected table/record, the action, and the time.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>2. Information this portal should not store</h2>
+        <p>Do not enter Social Security numbers, government-identification numbers, immigration information, card numbers, bank-account numbers, CVV codes, passwords, recovery links, session tokens, CAPTCHA tokens, authenticator codes, passkey private keys, full medical histories, or unrelated sensitive details. Use a dedicated payment processor for payment credentials and a separately approved process for genuinely necessary medical or emergency information.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>3. Why information is used</h2>
+        <p>The dojo uses authorized records to create and secure accounts, verify and approve access, connect families to the correct students, manage classes and attendance, follow belt development and goals, communicate with families, maintain billing status and consent, investigate security events, and operate the service. Information should not be collected merely because a form has an empty box waiting to be fed.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>4. Account creation and approval</h2>
+        <p>A parent, legal guardian, or adult student may request an account using their own email and password. Email verification and dojo approval are required before student information becomes available. Creating an account, signing in with Google, or presenting a valid passkey does not by itself authorize access to a student. A dojo administrator must approve the role and create the correct account-to-student relationship.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>5. Who can see what</h2>
+        <ul class="task-list">
+          <li><strong>Parents or guardians:</strong> only students linked to their own active account, including authorized family-visible training records and billing status.</li>
+          <li><strong>Students:</strong> only the student profile linked to their own login. A parent-managed account is the default approach for children under 13.</li>
+          <li><strong>Instructors:</strong> authorized student training and attendance records only after completing required authenticator-app MFA. Instructor access does not include family billing.</li>
+          <li><strong>Administrators:</strong> account relationships, pending-account decisions, student records, consent, billing status, and audit history after required authenticator-app MFA.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>6. Children and parent control</h2>
+        <p>For children under 13, the recommended configuration is a parent or guardian account linked to the child rather than a direct child login. Before collecting personal information directly from a child, the dojo must determine whether parental notice and verifiable consent are required. The portal must not sell children's information, use it for behavioral advertising, or collect more than is reasonably needed for the dojo service.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>7. Security practices</h2>
+        <ul class="task-list">
+          <li>HTTPS for every production page and API request.</li>
+          <li>Email confirmation and administrator approval before new family accounts unlock student records.</li>
+          <li>Long-password requirements, password-strength feedback, recovery protections, rate limits, and optional CAPTCHA abuse protection.</li>
+          <li>Optional Google and passkey login configured through the authentication provider.</li>
+          <li>Database Row Level Security on every exposed application table.</li>
+          <li>Authenticator-app MFA required for instructors and administrators.</li>
+          <li>Service-role and provider secrets kept only in server-side protected environments.</li>
+          <li>Output encoding, security headers, audit review, same-day staff access removal, tested backups, and a documented incident-response process.</li>
+        </ul>
+        <p>No security control can guarantee that an online service will never be compromised. The dojo must maintain, monitor, test, and update these controls.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>8. Service providers and disclosures</h2>
+        <p>The live system may use providers for web hosting, authentication/database service, Google identity, CAPTCHA/abuse protection, transactional email, monitoring, backup, and payment processing. Before launch, replace this sentence with the actual providers and links to their privacy information. Information should be disclosed only as needed to operate the dojo, complete a family-requested transaction, protect safety/security, or comply with law. The dojo should not sell student or family information.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>9. Retention and deletion</h2>
+        <p>The database does not automatically decide how long the dojo legally or operationally needs each record. Before launch, the dojo must approve a written schedule for Auth identities, active/inactive student records, guardian relationships, attendance, progress, notes, consent, billing status, audit history, provider logs, email records, and backups. When the purpose and any required retention period end, records should be securely deleted or de-identified, including deletion propagation to backups where practicable.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>10. Family choices and requests</h2>
+        <p>Parents, guardians, and adult students may request access, correction, account deactivation, relationship correction, factor/passkey review, or deletion, subject to records the dojo must retain. Identity and authority must be verified before releasing or changing records. Requests should be sent to <strong>[PRIVACY EMAIL]</strong> or <strong>[MAILING ADDRESS]</strong>.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>11. Security incidents</h2>
+        <p>Suspected unauthorized access should be reported immediately to <strong>[SECURITY CONTACT]</strong>. The dojo should preserve relevant logs, disable affected access, rotate/revoke exposed credentials, investigate scope, restore trusted data when needed, and complete legally required notifications.</p>
+      </section>
+
+      <section class="policy-card">
+        <h2>12. Contact</h2>
+        <p><strong>Dojo:</strong> S.K.I.F. Puerto Rico Honbu Dojo<br />
+          <strong>Privacy email:</strong> [ADD OFFICIAL EMAIL]<br />
+          <strong>Security contact:</strong> [ADD SECURITY CONTACT]<br />
+          <strong>Phone:</strong> [ADD OFFICIAL PHONE]<br />
+          <strong>Address:</strong> [ADD OFFICIAL ADDRESS]</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom single-row"><span>© <span data-year></span> S.K.I.F. Puerto Rico Honbu Dojo.</span><span>Privacy notice draft—complete before production launch.</span></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
